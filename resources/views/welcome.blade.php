@@ -54,13 +54,21 @@
 
     <!-- Main Content -->
     <main class="container my-5 py-4 d-flex justify-content-center align-items-center" style="min-height: 70vh;">
-  <div class="card shadow text-center p-5" style="max-width: 500px; width: 100%;">
-    <h3 class="mb-4 rounded text-nowrap" id="greet">Mulai Try Out</h3>
-    <a href="/tryout/tryout" class="p-5 btn btn-outline-primary rounded-circle d-flex justify-content-center align-items-center mx-auto" style="width: 100px; height: 100px; font-size: 1.5rem;"><i class="bx bx-play" style="font-size: 2rem;"></i></a>
+  <div class="card shadow text-center p-4 w-100" style="max-width: 500px;">
+    <h3 class="mb-4" id="greet">Mulai Try Out</h3>
+
+    <!-- Tombol Bulat -->
+    <a href="/tryout/tryout"
+       class="btn btn-outline-primary rounded-circle d-flex justify-content-center align-items-center mx-auto"
+       style="width: 90px; height: 90px;">
+       <i class="bx bx-play" style="font-size: 2rem;"></i>
+    </a>
+
     <div class="mt-3">Klik Tombol Di Atas Untuk Mulai Tryout</div>
     <div class="mt-3" id="last-nilai"></div>
-</div>
+  </div>
 </main>
+
 
 
 
@@ -68,6 +76,8 @@
     @include('component.footer')
     <!-- Scripts -->
     @include('component.scripts')
+      <script src="{{ asset('/assets/js/welcome.js') }}" defer></script>
+
     <script>
         document.getElementById('user').innerText = localStorage.getItem('username') || 'User';
         document.getElementById('last-nilai').innerText = "Nilai Terakhir: "+(localStorage.getItem('last-score') || 'Tidak Ada');
