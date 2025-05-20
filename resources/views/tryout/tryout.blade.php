@@ -50,25 +50,7 @@
 </head>
 <body class="bg-light">
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg gradient text-white shadow-sm">
-        <div class="container text-white">
-            <a class="navbar-brand fw-bold text-white" href="#">Aplikasi TryOut</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse text-white" id="navbarContent">
-                <ul class="navbar-nav me-auto text-white"></ul>
-                <div class="d-flex justify-content-center align-items-center gap-2">
-                    <span class="text-dark fw-semibold d-flex align-items-center gap-1">
-                      <i class='bx bx-user-circle text-white'></i> <span class="text-white" id="user"></span>
-                    </span>
-                    <button onclick="logout()" class="btn btn-outline-light btn-sm">Logout</button>
-                </div>
-            </div>
-        </div>
-    </nav>
+    @include('component.nav')
 
     <!-- Main Content -->
     <main class="container my-5 py-4">
@@ -119,17 +101,9 @@
         </div>
     </div>
 
-    <footer class="bg-gradient bg-dark text-white text-center py-3 mt-auto">
-        <div class="container">
-            <small>&copy; 2025 Aplikasi TryOut. All rights reserved.</small>
-        </div>
-    </footer>
+    @include('component.footer')
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-loading-overlay@1.2.0/dist/js-loading-overlay.min.js"></script>
+    @include('component.scripts')
     <script>
         document.getElementById('user').innerText = localStorage.getItem('username') || 'User';
     </script>

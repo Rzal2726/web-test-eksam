@@ -248,6 +248,7 @@ function updateNavigationButtons() {
 
 async function showScore() {
     const totalScore = await calculateTotalScore();
+    localStorage.setItem('last-score', totalScore.nilai);
     Swal.fire({
         title: "Tes Selesai!",
         text: `Nilai kamu: ${totalScore.nilai} dari ${totalScore.maxNilai}`,
@@ -263,21 +264,8 @@ async function showScore() {
     }).then(async (result) => {
         if (result.isConfirmed) {
             JsLoadingOverlay.show();
-            const response = await fetch(endpoints.logout, {
-                method: "POST",
-                headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('token')
-                }
-            });
-            const data = await response.json();
-
-            if (response.ok) {
-                toastr.success("Berhasil Logout");
-                localStorage.clear();
-                window.location.href = '/';
-            } else {
-                toastr.error(data.message || 'Logout gagal!');
-            }
+            localStorage.removeItem('answers');
+            window.location.href = '/tryout';
             JsLoadingOverlay.hide();
         } else if (result.dismiss === Swal.DismissReason.cancel) {
             reset();
