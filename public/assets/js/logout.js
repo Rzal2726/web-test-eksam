@@ -5,11 +5,11 @@ const endpoint = {
 async function logout() {
     try {
         const result = await Swal.fire({
-            title: "Yakin ingin mengakhiri ujian?",
-            text: "Setelah logout, kamu akan mengakhiri ujian.",
+            title: "Yakin ingin logout?",
+            text: "Kamu akan diarahkan ke halaman login",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonText: "Ya, selesai!",
+            confirmButtonText: "Ya, logout!",
             cancelButtonText: "Batal"
         });
 
@@ -36,4 +36,11 @@ async function logout() {
         console.log(e);
         JsLoadingOverlay.hide();
     }
+}
+
+function load(){
+    JsLoadingOverlay.show();
+    setTimeout(() => {
+        JsLoadingOverlay.hide();
+    },1000);
 }

@@ -60,7 +60,9 @@
     <!-- Tombol Bulat -->
     <a href="/tryout/tryout"
        class="btn btn-outline-primary rounded-circle d-flex justify-content-center align-items-center mx-auto"
-       style="width: 90px; height: 90px;">
+       style="width: 90px; height: 90px;"
+       onclick="load()"
+       >
        <i class="bx bx-play" style="font-size: 2rem;"></i>
     </a>
 
